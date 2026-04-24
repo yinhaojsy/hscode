@@ -8,6 +8,9 @@ export interface ToolConfig {
   url: string
 }
 
+const webocBaseUrl =
+  import.meta.env.VITE_WEBOC_BASE_URL ?? (import.meta.env.DEV ? '/weboc' : 'https://weboc.gov.pk')
+
 interface WebocState {
   selectedTool: ToolKey
   hsCodeQuery: string
@@ -23,17 +26,17 @@ export const tools: ToolConfig[] = [
   {
     key: 'tariff',
     label: 'Check HS Code',
-    url: '/weboc/Shared/TariffList.aspx',
+    url: `${webocBaseUrl}/Shared/TariffList.aspx`,
   },
   {
     key: 'history',
     label: 'Import History',
-    url: '/weboc/DownloadValuationData.aspx',
+    url: `${webocBaseUrl}/DownloadValuationData.aspx`,
   },
   {
     key: 'duty',
     label: 'Calculate Duty',
-    url: '/weboc/Shared/ItemGeneralDutyCalculator.aspx',
+    url: `${webocBaseUrl}/Shared/ItemGeneralDutyCalculator.aspx`,
   },
 ]
 
