@@ -8,8 +8,7 @@ export interface ToolConfig {
   url: string
 }
 
-const webocBaseUrl =
-  import.meta.env.VITE_WEBOC_BASE_URL ?? (import.meta.env.DEV ? '/weboc' : 'https://weboc.gov.pk')
+const webocBaseUrl = import.meta.env.VITE_WEBOC_BASE_URL ?? '/weboc'
 
 interface WebocState {
   selectedTool: ToolKey

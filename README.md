@@ -55,3 +55,24 @@ Important:
 - Keep SPA fallback `try_files ... /index.html`
 - Keep `/weboc` and `/weboc-www` proxy routes
 - Reload Nginx after updating config
+
+## Deploy on Railway (with iframe proxy)
+
+This repository now includes a `Dockerfile` for Railway:
+
+- Build frontend with Node 22
+- Serve SPA via Nginx
+- Proxy `/weboc` and `/weboc-www` to WebOC upstream
+
+Key files:
+
+- `Dockerfile`
+- `deploy/nginx.railway.template.conf`
+
+How to deploy:
+
+1. Push to GitHub.
+2. In Railway, redeploy the service (it will detect `Dockerfile` and use Docker deployment).
+3. Keep the default `PORT` environment variable from Railway.
+
+After this, production should behave like local proxy mode for iframe routes.
